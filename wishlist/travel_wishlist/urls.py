@@ -9,8 +9,8 @@ POST request, add new place to DB then redirects to a list of places
 """
 
 urlpatterns = [
-    path ('',views.place_list, name='place_list'),
-    path ('visited', views.places_visited, name = 'places_visited'),
+    path ('',views.place_list, name='place_list'),  # Make sure to add commas next to each path.
+    path ('visited', views.places_visited, name = 'places_visited'), # name refers to the url path 
     path ('place/<int:place_pk>/was_visited/', views.place_was_visited, name='place_was_visited')
     
 ]

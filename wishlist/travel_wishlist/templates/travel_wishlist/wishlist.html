@@ -1,20 +1,24 @@
-<h1>Travel Wishlist</h1>
+{% extends 'travel_wishlist/base.html'%}
+{% block content %}
+
+<h2>Travel Wishlist</h2>
 
 <form method = "POST" action = "{% url 'place_list' %}">
     {% csrf_token %}
-    {{ new_place_form }}
-    <button type = "submit">Add</button>
+    {{ new_place_form }} <!-- references the form created in forms.py-->
+    <button id="add-new-place" type = "submit">Add</button>
 </form>
 
 {% for place in places %}
 
-    <div>
+    <div class="wishlist-place">
+        <!-- The span element doesn't mean anything on its own, but can be useful when used together with the global attributes, e.g. class, lang, or dir. 
+        It represents its children.-->
+        <span id ="place-name-{{ place.pk }}"class="place-name">{{ place.name }}</span>
 
-        {{ place.name }}
-
-        <form method ="POST" action ="{% url 'place_was_visited' place.pk %}"> 
+        <form class= "visited-form" method ="POST" action ="{% url 'place_was_visited' place.pk %}"> 
             {% csrf_token %}
-            <button type="submit">Visited!</button>
+            <button id="visited-button-{{ place.pk }}" type="submit">Visited!</button>
         </form>
     </div>
 
@@ -24,4 +28,4 @@
 
 {% endfor %}
 
-<a href="{% url 'places_visited' %}">Places you've visited</a>
+{% endblock %}

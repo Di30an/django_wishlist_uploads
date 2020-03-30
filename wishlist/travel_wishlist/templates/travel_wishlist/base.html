@@ -1,0 +1,28 @@
+<!-- just works as a template. The block content swaps out for block content from which this extends, this page 
+     is not a landing page, rather 'place_list' just following this format.-->
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Travel Wishlist</title>
+        <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    </head>
+    <body>
+
+        <h1>Where do you want to go?</h1>
+
+            {% block content %} <!--Does not display anything, swaps out for %block_content% on other pages. -->
+            {% endblock %}
+
+    <hr>
+
+    <div>
+
+        <p> A travel wish list site built with Django.</p>
+    
+        <a class="nav-link" href="{% url 'place_list' %}">Your wishlist</a> <!-- Link to v-->
+        <a class="nav-link" href="{% url 'places_visited'%}"> Places you've visisted</a>
+    </div>
+    </body>
+</html>
