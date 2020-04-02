@@ -10,7 +10,7 @@
     </head>
     <body>
 
-        <h1>Where do you want to go?</h1>
+        <h1 id ="site-header" style="background: url('{% static 'img/jtree.jpg' %}')">Where do you want to go?</h1>
 
             {% block content %} <!--Does not display anything, swaps out for %block_content% on other pages. -->
             {% endblock %}
@@ -22,7 +22,7 @@
         <p> A travel wish list site built with Django.</p>
     
         <a class="nav-link" href="{% url 'place_list' %}">Your wishlist</a> <!-- Link to v-->
-        <a class="nav-link" href="{% url 'places_visited'%}"> Places you've visisted</a>
+        <a class="nav-link" href="{% url 'places_visited' %}"> Places you've visisted</a>
     </div>
     </body>
 </html>
